@@ -4,7 +4,7 @@ Proyecto desarrollado para el sprint de Frontend (HTML, CSS y JavaScript). Sitio
 
 ## Integrantes del Equipo
 - Ayax Franklin Ibarra Ruveda - Estilos base, Header, Footer y Estructura Global.
-- [Integrante 2]
+- Daiana Rosario Pereyra Stanicio - Página de contacto y Estilo de Formulario Accesible.
 - [Integrante 3]
 - [Integrante 4]
 - [Integrante 5]
