@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mueblería Hermanos Jota - Muebles artesanales de tradición familiar con más 6 décadas de historia. Descubrí nuestro catálogo online.">
     <title>Mueblería Hermanos Jota</title>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
@@ -16,23 +17,41 @@
                     <img src="./img/logo.svg" alt="Logo Mueblería Hermanos Jota" class="logo-img">
                 </a>
             </div>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Menú de navegación principal">
                 <ul class="nav-list">
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html" aria-current="page">Inicio</a></li>
                     <li><a href="productos.html">Catálogo</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
             <div class="cart-widget">
-                <a href="productos.html" id="cart-link">🛒 <span id="cart-counter">0</span></a>
+                <a href="productos.html" id="cart-link" aria-label="Ver carrito de compras">
+                    🛒 <span id="cart-counter" aria-live="polite">0</span></a>
             </div>
         </div>
     </header>
 
     <!-- MAIN (Acá cada uno inyecta el contenido de su página) -->
     <main>
-        <!-- Contenido principal de cada página -->
+<!-- Hero Banner Principal -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>HERMANOS JOTA</h1>
+                <p>Tradición que perdura. Diseño que trasciende.</p>
+                <a href="productos.html" class="btn-primary">Nuestros Productos</a>
+            </div>
+            <img src="./img/Aparador Uspallata.png" alt="Aparador artesanal Hermanos Jota" class="hero-img">
+        </section>
+
+        <!-- Sección de Destacados -->
+        <section class="destacados-container">
+            <h2 class="seccion-titulo">Destacados</h2>
+            <div id="productos-destacados" class="productos-grid">
+                <!-- app.js inyectará dinámicamente aquí las 4 tarjetas -->
+            </div>
+        </section>
     </main>
+
 
     <!-- FOOTER GLOBAL -->
     <footer class="site-footer">
@@ -46,5 +65,8 @@
         </div>
     </footer>
 
+<!-- Vinculación de Scripts-->
+<script src="./js/productos.js" defer></script>
+<script src="./js/app.js" defer></script>
 </body>
 </html>
