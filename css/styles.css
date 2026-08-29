@@ -8,16 +8,17 @@
 }
 
 :root {
-    --primary-color: #2c2c2c;       /* Color principal de la marca */
+    --primary-color: #A0522D;       /* Color principal de la marca */
     --accent-color: #87A96B;        /* Color de acento / secundario */
     --bg-light: #F5E6D3;            /* Fondo general claro indicado en el manual */
     --text-color: #333333;          /* Color para textos generales */
     --white: #ffffff;
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    --font-heading: 'Playfair DIsplay', Georgia, serif;                        /* Fuente para títulos según el manual */ 
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;       /* Fuente para el cuerpo del texto */
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: var(--font-body);
     color: var(--text-color);
     background-color: var(--bg-light);
     display: flex;
