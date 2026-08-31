@@ -196,6 +196,116 @@ ul {
   border-radius: 4px;
 }
 
+/*Estilos para los filtros de productos*/
+/* Contenedor general de filtros */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* --- Barra de Búsqueda --- */
+.search-box {
+    display: flex;
+    align-items: center;
+    flex: 1 1 300px; /* Crece y se adapta según el espacio disponible */
+    max-width: 450px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-box:focus-within {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.search-box input[type="search"] {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    color: #1f2937;
+}
+
+.search-box button {
+    background: transparent;
+    border: none;
+    padding: 0.6rem 0.8rem;
+    cursor: pointer;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.search-box button:hover {
+    color: #2563eb;
+}
+
+/* --- Selector de Filtro / Ordenamiento --- */
+.sort-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sort-box label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    white-space: nowrap;
+}
+
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.sort-box select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 0.6rem 2.2rem 0.6rem 0.8rem;
+    font-size: 0.9rem;
+    color: #1f2937;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sort-box select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Flecha personalizada para el selector */
+.select-wrapper::after {
+    content: "";
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #6b7280;
+    pointer-events: none;
+}
+
 /* ==========================================
    3. FOOTER GLOBAL
    ========================================== */
