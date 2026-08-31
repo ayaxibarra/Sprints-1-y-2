@@ -31,31 +31,38 @@
 
     <!-- MAIN (Acá cada uno inyecta el contenido de su página) -->
     <main>
-        <div>
-            <section id="productos">
-            <div>
-                <p>Mostrando 1-12 de 36 productos</p>
-                <div>
+        <div class="filter-bar">
+            <div class="sort-box">
                 <label for="sort">Ordenar por:</label>
                 <select id="sort" name="sort">
                     <option value="price-low">Precio: Menor a Mayor</option>
                     <option value="price-high">Precio: Mayor a Menor</option>
                     <option value="newest">Más nuevos</option>
                 </select>
-                </div>
             </div>
+            <div class="search-box">
+                <input type="search" id="search-input" placeholder="Buscar productos..." aria-label="Buscar productos">
+                <button type="submit" aria-label="Buscar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
 
-            <div>
+        <div class="productos-grid">
+            <div class="card">
                 <article>
                 <img src="img/Mesa Comedor Pampa.png" alt="Mesa Comedor Pampa" loading="lazy">
                 <div>
-                    <h3><a href="#">Mesa Comedor Pampa</a></h3>
+                    <h3 class="card-title"><a href="#">Mesa Comedor Pampa</a></h3>
                     <div>
                     </div>
                     <div>
-                    <span>precio</span>
+                    <span class="card-price">precio</span>
                     </div>
-                    <button type="button">Añadir al Carrito</button>
+                    <button class="btn-primary" type="button">Añadir al Carrito</button>
                 </div>
                 </article>
             </div>
