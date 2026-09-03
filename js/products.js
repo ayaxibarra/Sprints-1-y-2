@@ -85,28 +85,52 @@ function renderProducts(productArray){
 
     productCatalog.innerHTML = "";
 
-    const htmlProducts = productArray
-    .map(
-        (product) => `
-        <li class="card">
-            <article>
-            <img src="${product.img}" alt="${product.name}" loading="lazy">
-            <div>
-                <h3 class="card-title"><a href="">${product.name}</a></h3>
-                <div>
-                <span class="card-price">$ ${product.price}</span>
-                </div>
-                <button class="btn-primary" type="button" data-id="${product.id}">
-                Añadir al Carrito
-                </button>
-            </div>
-            </article>
-        </li>
-        `
-    )
-    .join("");
+    productArray.forEach((product) => {
+        const li = document.createElement('li');
+        li.classList.add('card');
 
-    productCatalog.innerHTML = htmlProducts;
+        const article = document.createElement('article');
+
+        const img = document.createElement('img');
+        img.src = product.img;
+        img.alt = product.name;
+        img.loading = 'lazy';
+
+        const contentDiv = document.createElement('div');
+
+        const h3 = document.createElement('h3');
+        h3.classList.add('card-title');
+
+        const link = document.createElement('a');
+        link.href = "";
+        link.textContent = product.name;
+
+        const priceDiv = document.createElement('div');
+
+        const priceSpan = document.createElement('span');
+        priceSpan.classList.add('card-price');
+        priceSpan.textContent = `$ ${product.price}`;
+
+        const button = document.createElement('button');
+        button.classList.add('btn-primary');
+        button.type = 'button';
+        button.dataset.id = product.id;
+        button.textContent = 'Añadir al Carrito';
+
+        h3.appendChild(link);
+        priceDiv.appendChild(priceSpan);
+
+        contentDiv.appendChild(h3);
+        contentDiv.appendChild(priceDiv);
+        contentDiv.appendChild(button);
+
+        article.appendChild(img);
+        article.appendChild(contentDiv);
+
+        li.appendChild(article);
+
+        productCatalog.appendChild(li);
+    });
 }
 
 // Función para ordenar y actualizar la lista
