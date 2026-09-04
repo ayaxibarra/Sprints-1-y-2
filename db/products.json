@@ -1,0 +1,79 @@
+[
+  {
+    "id": 0,
+    "name": "Aparador Uspallata",
+    "desc": "",
+    "price": 2000,
+    "img": "img/Aparador Uspallata.png"
+  },
+  {
+    "id": 1,
+    "name": "Biblioteca Recoleta",
+    "desc": "",
+    "price": 3000,
+    "img": "img/Biblioteca Recoleta.png"
+  },
+  {
+    "id": 2,
+    "name": "Butaca Mendoza",
+    "desc": "",
+    "price": 1500,
+    "img": "img/Butaca Mendoza.png"
+  },
+  {
+    "id": 3,
+    "name": "Escritorio Costa",
+    "desc": "",
+    "price": 4000,
+    "img": "img/Escritorio Costa.png"
+  },
+  {
+    "id": 4,
+    "name": "Mesa Comedor Pampa",
+    "desc": "",
+    "price": 3000,
+    "img": "img/Mesa Comedor Pampa.png"
+  },
+  {
+    "id": 5,
+    "name": "Mesa de Centro Araucaria",
+    "desc": "",
+    "price": 2500,
+    "img": "img/Mesa de Centro Araucaria.png"
+  },
+  {
+    "id": 6,
+    "name": "Mesa de Noche Aconcagua",
+    "desc": "",
+    "price": 4500,
+    "img": "img/Mesa de Noche Aconcagua.png"
+  },
+  {
+    "id": 7,
+    "name": "Silla de Trabajo Belgrano",
+    "desc": "",
+    "price": 1000,
+    "img": "img/Silla de Trabajo Belgrano.png"
+  },
+  {
+    "id": 8,
+    "name": "Sillas Córdoba",
+    "desc": "",
+    "price": 1100,
+    "img": "img/Sillas Córdoba.png"
+  },
+  {
+    "id": 9,
+    "name": "Sillón Copacabana",
+    "desc": "",
+    "price": 1200,
+    "img": "img/Sillón Copacabana.png"
+  },
+  {
+    "id": 10,
+    "name": "Sofá Patagonia",
+    "desc": "",
+    "price": 5500,
+    "img": "img/Sofá Patagonia.png"
+  }
+]
