@@ -1,83 +1,23 @@
-//Array de objetos de los productos
-let products = [
-    {
-        id:0,
-        name:"Aparador Uspallata",
-        desc:"",
-        price:2000,
-        img:"img/Aparador Uspallata.png"
-    },
-    {
-        id:1,
-        name:"Biblioteca Recoleta",
-        desc:"",
-        price:3000,
-        img:"img/Biblioteca Recoleta.png"
-    },
-    {
-        id:2,
-        name:"Butaca Mendoza",
-        desc:"",
-        price:1500,
-        img:"img/Butaca Mendoza.png"
-    },
-    {
-        id:3,
-        name:"Escritorio Costa",
-        desc:"",
-        price:4000,
-        img:"img/Escritorio Costa.png"
-    },
-    {
-        id:4,
-        name:"Mesa Comedor Pampa",
-        desc:"",
-        price:3000,
-        img:"img/Mesa Comedor Pampa.png"
-    },
-    {
-        id:5,
-        name:"Mesa de Centro Araucaria",
-        desc:"",
-        price:2500,
-        img:"img/Mesa de Centro Araucaria.png"
-    },
-    {
-        id:6,
-        name:"Mesa de Noche Aconcagua",
-        desc:"",
-        price:4500,
-        img:"img/Mesa de Noche Aconcagua.png"
-    },
-    {
-        id:7,
-        name:"Silla de Trabajo Belgrano",
-        desc:"",
-        price:1000,
-        img:"img/Silla de Trabajo Belgrano.png"
-    },
-    {
-        id:8,
-        name:"Sillas Córdoba",
-        desc:"",
-        price:1100,
-        img:"img/Sillas Córdoba.png"
-    },
-    {
-        id:9,
-        name:"Sillón Copacabana",
-        desc:"",
-        price:1200,
-        img:"img/Sillón Copacabana.png"
-    },
-    {
-        id:10,
-        name:"Sofá Patagonia",
-        desc:"",
-        price:5500,
-        img:"img/Sofá Patagonia.png"
+//Tomar todos los datos de los productos del archivo JSON
+async function fetchProducts(){
+    try{
+        const response = await fetch('../db/products.json');
+
+        if (!response.ok) {
+            throw new Error(`Error en la petición: ${response.status}`);
+        }
+
+        const products = await response.json();
+
+        return products;
     }
-]
+    catch(error){
+        console.error("No se pudo obtener los productos", error.message);
+
+        return [];
+    }
+
+}
 
 //Agrega cada elemento del array de objetos como HTML
 function renderProducts(productArray){
@@ -133,28 +73,50 @@ function renderProducts(productArray){
     });
 }
 
-// Función para ordenar y actualizar la lista
-function sortProducts() {
+//Función para aplicar busqueda y ordenamiento
+function applyFilters(productArray) {
+    const searchInput = document.getElementById('search-input');
     const sortSelect = document.getElementById('sort');
-    const selectedOption = sortSelect.value;
 
-    let sortedProducts = [...products];
+    const search = searchInput ? searchInput.value.trim().toLowerCase() : '';
+    const selectedOption = sortSelect ? sortSelect.value : '';
+
+    let filteredProducts = productArray.filter(p => 
+        p.name.toLowerCase().includes(search)
+    );
 
     if (selectedOption === 'price-low') {
-        sortedProducts.sort((a, b) => a.price - b.price);
+        filteredProducts.sort((a, b) => a.price - b.price);
     } else if (selectedOption === 'price-high') {
-        sortedProducts.sort((a, b) => b.price - a.price);
+        filteredProducts.sort((a, b) => b.price - a.price);
     } else if (selectedOption === 'newest') {
-        sortedProducts.sort((a, b) => b.id - a.id);
+        filteredProducts.sort((a, b) => b.id - a.id);
     }
 
-    renderProducts(sortedProducts);
+    renderProducts(filteredProducts);
 }
 
-// Listener para detectar cambios en el menú desplegable
-const sortSelect = document.getElementById('sort');
-if (sortSelect) {
-    sortSelect.addEventListener('change', sortProducts);
+async function init(){
+    const products = await fetchProducts();
+
+    //Listener para detectar cambios en el menú desplegable
+    const sortSelect = document.getElementById('sort');
+
+    if (sortSelect){
+        sortSelect.addEventListener('change', () => applyFilters(products));
+    }
+
+    //Listener para boton de busqueda
+    const searchSubmit = document.getElementById('search-submit');
+    const searchInput = document.getElementById('search-input');
+
+    if (searchSubmit && searchInput) {
+        searchSubmit.addEventListener('click', (e) => {
+            applyFilters(products)
+        });
+    }
+
+    applyFilters(products);
 }
 
-sortProducts();
+init();
