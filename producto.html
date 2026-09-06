@@ -36,28 +36,12 @@
     </header>
 
     <!-- MAIN (Acá cada uno inyecta el contenido de su página) -->
-    <main class="contenedor-producto">
-        <section class="seccion-imagen">
-            <img src="./img/ejemplo-mueble.jpg" alt="Sofá de 3 plazas en lino gris" class="product-image">
-        </section>
-        <section class="seccion-informacion">
-            <h1 class="titulo-producto">Sofá Premium 3 Plazas Lino Gris</h1>
-            <p class="descripcion-producto">
-                Descubre el confort y la elegancia de nuestro sofá Premium de 3 plazas, tapizado en lino gris de alta calidad. Perfecto para tu sala de estar, combina diseño moderno con la máxima comodidad. Fabricado artesanalmente para garantizar años de durabilidad.
-            </p>
-            <ul class="detalles-producto">
-                <li>Material principal: Lino antimancha color gris</li>
-                <li>Estructura: Madera maciza de pino</li>
-                <li>Dimensiones: 200 cm x 90 cm x 85 cm</li>
-                <li>Incluye 2 almohadones decorativos</li>
-                <li>Asientos y respaldos rellenos de espuma de alta densidad</li>
-            </ul>
-            <div class="contenedor-precio">
-                <span class="precio-producto">$35,990</span>
-            </div>
-            <button class="btn-agregar-carrito">Añadir al Carrito</button>
-        </section>
+    <main>
+        <div class="contenedor-producto" id="contenedor-producto" aria-live="polite">
+            <p>Cargando producto...</p>
+        </div>
     </main>
+    
     <!-- FOOTER GLOBAL -->
     <footer class="site-footer">
         <div class="footer-container">
@@ -83,6 +67,8 @@
             </ul>
         </div>
     </footer>
-
+   
+    <script src="./js/carrito.js" defer></script>
+    <script src="./js/detalle.js" defer></script>
 </body>
 </html>
