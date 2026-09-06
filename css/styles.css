@@ -11,9 +11,11 @@
     --primary-color: #A0522D;       /* Color principal de la marca */
     --accent-color: #87A96B;        /* Color de acento / secundario */
     --bg-light: #F5E6D3;            /* Fondo general claro indicado en el manual */
-    --text-color: #333333;          /* Color para textos generales */
+    --text-color: #333333;   
+    --premium-color: #D4A437; 
+    --details-color: #C4746D;          
     --white: #ffffff;
-    --font-heading: 'Playfair DIsplay', Georgia, serif;                        /* Fuente para títulos según el manual */ 
+    --font-heading: 'Playfair Display', Georgia, serif;                        /* Fuente para títulos según el manual */ 
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;       /* Fuente para el cuerpo del texto */
 }
 
@@ -27,6 +29,10 @@ body {
     line-height: 1.5;
 }
 
+main {
+    flex: 1;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -34,6 +40,14 @@ a {
 
 ul {
     list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 /* ==========================================
@@ -84,26 +98,76 @@ ul {
 
 /* Hero Banner (Layout y Alineación) */
 .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2.5rem 1.5rem;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 3rem 1.25rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 2.5rem;
 }
 
 .hero-content {
-  max-width: 500px;
+  max-width: 600px;
   text-align: center;
  }
+ 
+.hero-eyebrow {
+    color: var(--accent-color);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    margin-bottom: 0.75rem;
+
+}
 
 .hero h1 {
-  font-family: var(--font-heading);
-  font-size: 2.2rem;
-  color: var(--primary-color);
-  margin-bottom: 0.8rem;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-description {
+    font-family: var(--font-heading);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+}
+
+.hero-text {
+    color: var(--text-color);
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin: 0 auto 1.75rem;
+}
+
+.hero-image-container {
+  flex: 1;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px #A0522D26;
+  transition: transform 0.3s ease;
+  padding: 1.25rem;
+}
+
+.hero-image-container:hover {
+  transform: translateY(-6px);
 }
 
 .hero p {
@@ -115,10 +179,12 @@ ul {
 
 .hero-img {
   width: 100%;
-  max-width: 450px;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  display: block;
+  border-radius: 0;
   object-fit: cover;
+  margin: 0 auto;
 }
 
 /* Productos Destacados */
@@ -132,31 +198,104 @@ ul {
   letter-spacing: 0.1em;
 }
 
+
+.destacados-container {
+    width: 100%;
+
+    padding: 4rem 1.25rem;
+
+    background-color: var(--bg-light);
+}
+
+.destacados-header {
+    max-width: 650px;
+
+    margin: 0 auto 2.5rem;
+
+    text-align: center;
+}
+
+.destacados-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.section-eyebrow {
+    color: var(--premium-color);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    margin-bottom: 0.5rem;
+}
+
+.seccion-titulo {
+    font-family: var(--font-heading);
+
+    color: var(--primary-color);
+
+    font-size: 2rem;
+    line-height: 1.2;
+
+    margin-bottom: 0.75rem;
+}
+
+.section-description {
+    color: var(--text-color);
+
+    font-size: 0.95rem;
+
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+
 /* Tarjetas de Productos Destacados */
 
 .productos-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
 }
 
 .card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid rgba(160, 82, 45, 0.2);
-  display: flex;
-  flex-direction: column; 
-  max-width: 350px;     /* Limita el ancho máximo de la tarjeta */
-  width: 100%;          /* permite que sea fluída en pantalals pequeñas */
-  margin: 0 auto;       /*centra la tarjeta si está sola */
+    width: 100%;
+    max-width: 350px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background-color: var(--white);
+
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease; 
 }
 
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
 
+}
 .card img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -167,33 +306,243 @@ ul {
 }
 
 .card-body {
-  padding: 1rem;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1.25rem;
+    margin-top: auto;
 }
 
 .card-title {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+
+    color: var(--text-color);
+
+    font-size: 1.2rem;
+
+    margin-bottom: 0.5rem;
 }
 
 .card-price {
   color: var(--primary-color);
   font-weight: 700;
   font-size: 1.1rem;
+  margin:0.75rem 0 1rem;
 }
 
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Botones */
+
 .btn-primary {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  font-family: var(--font-body);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 54px;
+
+    padding: 1rem 2rem;
+
+    background-color: var(--primary-color);
+    color: var(--white);
+
+    border: none;
+    border-radius: 6px;
+
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
+        
+    margin-top: auto;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.btn-primary:focus-visible {
+    outline: 3px solid var(--premium-color);
+    outline-offset: 3px;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 58px;
+
+    padding: 0.7rem 1.5rem;
+
+    background-color: transparent;
+    color: var(--primary-color);
+
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.beneficios-container {
   width: 100%;
-  margin-top: 0.5rem;
-  border-radius: 4px;
+  padding: 4rem 1.25rem;
+}
+
+.beneficios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.beneficio-card {
+  background-color: var(--white);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.beneficio-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+}
+
+.beneficio-card h3 {
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.beneficio-card p {
+  font-family: var(--font-body);
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* TESTIMONIOS */
+.testimonios-container {
+  width: 100%;
+  padding: 4rem 1.25rem;
+  background-color: var(--bg-light);
+}
+
+.testimonios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+.testimonio-card {
+  background-color: var(--white);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.testimonio-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+}
+
+.testimonio-texto {
+  font-family: var(--font-body);
+  font-style: italic;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.testimonio-nombre {
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+
+/* ==========================================
+   BOTÓN VOLVER ARRIBA (Mobile First)
+   ========================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.25s ease, transform 0.25s ease;
+
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.back-to-top:active {
+    transform: translateY(-1px);
+}
+
+.back-to-top:focus-visible {
+    outline: 3px solid var(--premium-color);
+    outline-offset: 3px;
 }
 
 /*Estilos para los filtros de productos*/
@@ -354,6 +703,27 @@ ul {
         padding: 0 2rem;
     }
 
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    
+    .beneficio-card {
+        flex: 1 1 300px;
+        max-width: 320px;
+    }
+    
+    .back-to-top {
+        bottom: 2rem;
+        right: 2rem;
+        width: 48px;
+        height: 48px;
+    }
+
+    .testimonio-card {
+        flex: 1 1 300px;
+        max-width: 320px;
+    }
     
 /* Adaptación del Hero Banner a mobile*/
 
@@ -364,6 +734,7 @@ ul {
 
     .hero-content {
         text-align: left;
+        flex: 1;
     }
     .productos-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
