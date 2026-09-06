@@ -13,15 +13,16 @@ const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // Mínimo de caracteres para considerar que el mensaje es una consulta real.
 const MIN_CARACTERES_MENSAJE = 10;
 
-// Texto original del botón, para restaurarlo después del estado de carga.
 const TEXTO_BOTON_DEFAULT = botonEnviar ? botonEnviar.textContent : "Enviar Mensaje";
 
 // 2. ALERTAS VISUALES DE ERROR
 // ---------------------------------------------------------------------------
 
 /**
+ * Muestra el error del campo y lo asocia con el input vía aria-describedby.
+ * El <span> usa un id único (`error-${campo.id}`) y role="alert".
  * @param {HTMLElement} campo - Input o textarea que falló la validación.
- * @param {string} textoError - Mensaje claro para que el usuario sepa qué corregir.
+ * @param {string} textoError - Mensaje para que el usuario sepa qué corregir.
  */
 function mostrarError(campo, textoError) {
   campo.classList.add("error-input");
@@ -29,6 +30,7 @@ function mostrarError(campo, textoError) {
 
   const grupo = campo.parentElement;
   let spanError = grupo.querySelector(".error-mensaje");
+  const idError = `error-${campo.id}`;
 
   if (!spanError) {
     spanError = document.createElement("span");
@@ -36,18 +38,23 @@ function mostrarError(campo, textoError) {
     campo.insertAdjacentElement("afterend", spanError);
   }
 
+  spanError.id = idError;
+  spanError.setAttribute("role", "alert");
+  campo.setAttribute("aria-describedby", idError);
   spanError.textContent = textoError;
 }
 
 /**
  * Quita el estado de error de un campo cuando ya cumple las reglas:
- * - Remueve .error-input.
+ * - Remueve .error-input y aria-invalid.
+ * - Desasocia el mensaje (aria-describedby).
  * - Elimina el <span> de error del DOM si existía.
  * @param {HTMLElement} campo - Input o textarea que ahora es válido.
  */
 function limpiarError(campo) {
   campo.classList.remove("error-input");
   campo.removeAttribute("aria-invalid");
+  campo.removeAttribute("aria-describedby");
 
   const spanError = campo.parentElement.querySelector(".error-mensaje");
   if (spanError) {
