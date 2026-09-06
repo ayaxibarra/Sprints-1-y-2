@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mueblería Hermanos Jota</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
 
-    <!-- HEADER GLOBAL -->
+<body id="top">
+
     <header class="site-header">
         <div class="header-container">
             <div class="logo">
-                <a href="index.html">
+                <a href="index.html" aria-label="Mueblería Hermanos Jota - Inicio">
                     <img src="./img/logo.svg" alt="Logo Mueblería Hermanos Jota" class="logo-img">
                 </a>
             </div>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Menú de navegación principal">
                 <ul class="nav-list">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="productos.html">Catálogo</a></li>
@@ -24,44 +27,40 @@
                 </ul>
             </nav>
             <div class="cart-widget">
-                <a href="productos.html" id="cart-link">🛒 <span id="cart-counter">0</span></a>
+                <a href="productos.html" id="cart-link" aria-label="Ver carrito de compras">
+                    <span class="cart-icon" aria-hidden="true">🛒</span>
+                    <span id="cart-counter" aria-live="polite">0</span>
+                </a>
             </div>
         </div>
     </header>
 
     <!-- MAIN (Acá cada uno inyecta el contenido de su página) -->
 
-    <main class="contenedor-producto">
-
-         <!--agregado  nuevo-->
-         <div class="contenedor-producto" id="contenedor-producto" aria-live="polite">
+    <main>
+        <div class="contenedor-producto" id="contenedor-producto" aria-live="polite">
             <p>Cargando producto...</p>
         </div>
-
-        <!--<section class="seccion-imagen">
-             src y alt quedan vacíos, JS los completará
-            <img src="" alt="" class="product-image">
-        </section>
-        <section class="seccion-informacion">
-            <h1 class="titulo-producto"></h1>
-            <p class="descripcion-producto"></p>
-            
-            <ul class="detalles-producto">
-                 El interior del ul queda vacío porque JS creará los <li> 
-            </ul>
-            
-            <div class="contenedor-precio">
-                <span class="precio-producto"></span>
-            </div>
-           
-            <button class="btn-agregar-carrito">Añadir al Carrito</button>
-        </section>-->
     </main>
     
     <!-- FOOTER GLOBAL -->
     <footer class="site-footer">
         <div class="footer-container">
-            <p>&copy; 2026 Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+            <div class="footer-showroom">
+                <h3>Showroom y Taller</h3>
+                <p>Hermanos Jota — Casa Taller</p>
+                <p>Av. San Juan 2847, C1232AAB</p>
+                <p>Barrio de San Cristóbal, CABA, Argentina</p>
+                <p>Lun a Vie: 10:00–19:00 · Sáb: 10:00–14:00</p>
+            </div>
+            <div class="footer-contacto">
+                <h3>Contacto Digital</h3>
+                <p><a href="https://www.hermanosjota.com.ar">www.hermanosjota.com.ar</a></p>
+                <p><a href="mailto:info@hermanosjota.com.ar">info@hermanosjota.com.ar</a></p>
+                <p><a href="mailto:ventas@hermanosjota.com.ar">ventas@hermanosjota.com.ar</a></p>
+                <p>Instagram: @hermanosjota_ba</p>
+                <p>WhatsApp: +54 11 4567-8900</p>
+            </div>
             <ul class="footer-links">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="productos.html">Catálogo</a></li>
@@ -69,7 +68,6 @@
             </ul>
         </div>
     </footer>
-    <!--<script src="./js/productos-data.js"></script>-->
    
     <script src="./js/carrito.js" defer></script>
     <script src="./js/detalle.js" defer></script>
