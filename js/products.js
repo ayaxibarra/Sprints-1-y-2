@@ -1,7 +1,7 @@
 //Tomar todos los datos de los productos del archivo JSON
 async function fetchProducts(){
     try{
-        const response = await fetch('../db/products.json');
+        const response = await fetch('./db/products.json');
 
         if (!response.ok) {
             throw new Error(`Error en la petición: ${response.status}`);
@@ -19,6 +19,15 @@ async function fetchProducts(){
 
 }
 
+function escucharBotonesAgregar() {
+  const botones = document.querySelectorAll(".btn-agregar");
+  botones.forEach((boton) => {
+    boton.addEventListener("click", () => {
+      agregarAlCarrito(boton.dataset.id);
+    });
+  });
+}
+
 //Agrega cada elemento del array de objetos como HTML
 function renderProducts(productArray){
     const productCatalog = document.getElementById('product-list');
@@ -27,50 +36,28 @@ function renderProducts(productArray){
 
     productArray.forEach((product) => {
         const li = document.createElement('li');
-        li.classList.add('card');
 
-        const article = document.createElement('article');
-
-        const img = document.createElement('img');
-        img.src = product.img;
-        img.alt = product.name;
-        img.loading = 'lazy';
-
-        const contentDiv = document.createElement('div');
-
-        const h3 = document.createElement('h3');
-        h3.classList.add('card-title');
-
-        const link = document.createElement('a');
-        link.href = "";
-        link.textContent = product.name;
-
-        const priceDiv = document.createElement('div');
-
-        const priceSpan = document.createElement('span');
-        priceSpan.classList.add('card-price');
-        priceSpan.textContent = `$ ${product.price}`;
-
-        const button = document.createElement('button');
-        button.classList.add('btn-primary');
-        button.type = 'button';
-        button.dataset.id = product.id;
-        button.textContent = 'Añadir al Carrito';
-
-        h3.appendChild(link);
-        priceDiv.appendChild(priceSpan);
-
-        contentDiv.appendChild(h3);
-        contentDiv.appendChild(priceDiv);
-        contentDiv.appendChild(button);
-
-        article.appendChild(img);
-        article.appendChild(contentDiv);
-
-        li.appendChild(article);
+        li.innerHTML = `
+            <img class= "card-img" src="./${product.img}" alt="${product.name}" loading="lazy">
+            <div class="card-body">
+                <h3 class="card-title">${product.name}</h3>
+                <p class="card-description">${product.desc || "Producto artesanal de Hermanos Jota."}</p>
+                <p class="card-price">$${product.price.toLocaleString('es-AR')}</p>
+                <div class="card-actions">
+                    <button class="btn-primary btn-agregar" type="button" data-id="${product.id}">
+                        Añadir al Carrito
+                    </button>
+                    <a href="producto.html?id=${product.id}" class="btn-secondary">
+                        Ver Detalle
+                    </a>
+                </div>
+            </div>
+        `;
 
         productCatalog.appendChild(li);
     });
+
+    escucharBotonesAgregar();
 }
 
 //Función para aplicar busqueda y ordenamiento
