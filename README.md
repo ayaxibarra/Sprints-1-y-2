@@ -7,8 +7,8 @@ Proyecto desarrollado para el sprint de Frontend (HTML, CSS y JavaScript). Sitio
 - Franco Gabriel Gil - Página de Inicio, Hero Banner, Productos Destacados, Renderización JavaScript. 
 - Daiana Rosario Pereyra Stanicio - Página de contacto y Estilo de Formulario Accesible.
 - Franco Agustin Perez Lepera - Pagina de productos, Carga y renderizado de productos.
-- [Integrante 5]
-
+- Micaela Abril Pérez - Página de detalle de producto, Diseño visual y Renderizado JavaScript.
+  
 ## Tecnologías Utilizadas
 - HTML5 Semántico
 - CSS3 (Flexbox, Mobile-First)
