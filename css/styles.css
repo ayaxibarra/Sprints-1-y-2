@@ -193,8 +193,9 @@ html {
   text-align: center;
   font-family: var(--font-heading);
   color: var(--primary-color);
-  font-size: 1.8rem;
-  margin: 2.5rem 0 1rem 0;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 2.5rem 0 0.75rem;
   letter-spacing: 0.1em;
 }
 
@@ -232,17 +233,6 @@ html {
     text-transform: uppercase;
 
     margin-bottom: 0.5rem;
-}
-
-.seccion-titulo {
-    font-family: var(--font-heading);
-
-    color: var(--primary-color);
-
-    font-size: 2rem;
-    line-height: 1.2;
-
-    margin-bottom: 0.75rem;
 }
 
 .section-description {
@@ -312,7 +302,6 @@ html {
     flex-direction: column;
 
     padding: 1.25rem;
-    margin-top: auto;
 }
 
 .card-title {
@@ -370,7 +359,6 @@ html {
         background-color 0.25s ease,
         transform 0.25s ease;
         
-    margin-top: auto;
 }
 
 .btn-primary:hover {

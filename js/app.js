@@ -79,16 +79,9 @@ function renderizarProductos(listaProductos) {
 // Agregar funcionalidad a los botones del carrito//
 function escucharBotonesAgregar() {
   const botones = document.querySelectorAll(".btn-agregar");
-
   botones.forEach((boton) => {
     boton.addEventListener("click", () => {
-      carritoCount++;
-
-      const contador = document.querySelector("#cart-counter");
-
-      if (contador) {
-        contador.textContent = carritoCount;
-      }
+      agregarAlCarrito(boton.dataset.id); 
     });
   });
 }
