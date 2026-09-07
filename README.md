@@ -109,4 +109,4 @@ Una vez levantado el servidor, entrar a `index.html` desde la URL local — desd
 ## Enlaces
 
 - **Repositorio GitHub**: [github.com/ayaxibarra/Sprints-1-y-2](https://github.com/ayaxibarra/Sprints-1-y-2/tree/main)
-- **Sitio Web Desplegado**: _(pendiente — se publicará mediante GitHub Pages)_
+- **Sitio Web Desplegado**: https://ayaxibarra.github.io/Sprints-1-y-2/
