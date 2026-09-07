@@ -35,13 +35,13 @@
         </div>
     </header>
 
-    <!-- MAIN (Acá cada uno inyecta el contenido de su página) -->
+    <!-- MAIN -->
     <main>
         <section id="contacto">
             <h2>Escribinos</h2>
             <p>¿Tenés una consulta sobre nuestros muebles o necesitás asesoramiento? Completá el formulario y te respondemos a la brevedad.</p>
 
-            <form id="formulario-contacto" action="#" method="post">
+            <form id="formulario-contacto" action="#" method="post" novalidate>
                 <div class="grupo-campo">
                     <label for="nombreCompleto">Nombre Completo</label>
                     <input type="text" id="nombreCompleto" name="nombreCompleto" autocomplete="name" required>
@@ -87,6 +87,7 @@
             </ul>
         </div>
     </footer>
-
+    <script src="./js/carrito.js" defer></script>
+    <script src="./js/contacto.js" defer></script>
 </body>
 </html>
